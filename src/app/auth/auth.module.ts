@@ -6,6 +6,8 @@ import { MaterialModule } from '../material/material.module';
 import { AuthService } from '../service/auth.service';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoilerplateModule } from '../boilerplate/boilerplate.module';
+import { FirebaseAuthService } from '../service/firebase-auth.service';
 
 @NgModule({
   imports: [
@@ -13,9 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule,
     MaterialModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    BoilerplateModule
   ],
   declarations: [LoginComponent, RegisterComponent],
-  providers: [AuthService]
+  providers: [AuthService, FirebaseAuthService]
 })
-export class AuthModule {}
+export class AuthModule { }
