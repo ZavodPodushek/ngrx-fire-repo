@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   imports: [
     MatInputModule,
@@ -36,9 +37,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonToggleModule
   ],
   exports: [
+    MatButtonToggleModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
