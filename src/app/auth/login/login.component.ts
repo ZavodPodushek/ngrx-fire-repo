@@ -1,10 +1,17 @@
 import { config } from './form-fields';
-import { Component, OnInit, Inject } from '@angular/core';
+import {
+  Component, OnInit, Inject, EmbeddedViewRef,
+  ViewContainerRef, ViewChild, ElementRef
+} from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { FormBuilderBase } from '../../shared/form-builder.model';
 import { FormBuilder } from '@angular/forms';
-import { Observable } from '@firebase/util';
+import { Observable } from 'rxjs';
 import { FirebaseAuthService } from '../../service/firebase-auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { map, startWith } from 'rxjs/operators';
+import { ACTION } from '../auth.reducer';
 
 @Component({
   selector: 'app-login',
@@ -12,24 +19,26 @@ import { FirebaseAuthService } from '../../service/firebase-auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends FormBuilderBase implements OnInit {
-  showLinks = false;
+  additional = false;
   title = 'Login';
   subtitle = 'Put your credentials';
   type = false;
-  user$: any;
+  store$: Observable<void>;
+  isAuth$: Observable<boolean>;
   constructor(
     private _auth: AuthService,
     @Inject(FormBuilder) fb: FormBuilder,
-    public _fireAuth: FirebaseAuthService
+    public _fireAuth: FirebaseAuthService,
+    private _h: HttpClient,
+    private _store: Store<any>
   ) {
     super(fb, config);
+    this.isAuth$ = this._store.pipe(map(store => store.auth.auth));
   }
-
-  ngOnInit() {
-    console.log('User ', this._fireAuth.authState);
+  async ngOnInit() {
+    console.log(this);
   }
   public async login() {
-    const result = await this._fireAuth.regularSignIn(this.form.value);
-    console.log(result);
+    this._store.dispatch({ type: ACTION.LOGIN });
   }
 }

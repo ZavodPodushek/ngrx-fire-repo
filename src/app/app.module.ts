@@ -11,6 +11,7 @@ import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
 import { BoilerplateModule } from './boilerplate/boilerplate.module';
 import { AppRoutingModule } from './app.routing';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,9 +24,10 @@ import { AppRoutingModule } from './app.routing';
     BrowserAnimationsModule,
     ProfileModule,
     AuthModule,
-    BoilerplateModule
+    BoilerplateModule,
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
