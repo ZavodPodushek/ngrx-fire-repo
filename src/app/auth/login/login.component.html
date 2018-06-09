@@ -2,6 +2,8 @@
   <app-card [title]='title' [subtitle]='subtitle'>
     <form [formGroup]='form' (ngSubmit)="login()" class='form'>
       <div class='inner-form'>
+        <h3>Is Auth ? {{isAuth$ | async}}</h3>
+        <div [style]='store$ | async' hidden='true'></div>
         <mat-form-field class="full-width">
           <input matInput type="text" matInput formControlName='email' placeholder="Your email">
         </mat-form-field>
@@ -12,19 +14,23 @@
           </span>
         </mat-form-field>
         <button mat-raised-button color='primary' type='submit'> Confirm</button>
-        <ng-template [ngIf]='!showLinks'>
-          <div class='community-links' (click)='showLinks = !showLinks'>
+        <ng-template [ngIf]='!additional'>
+          <div class='community-links' (click)='additional = !additional'>
             <span>
               Via other community services ?
             </span>
           </div>
         </ng-template>
+        <ng-template #tmp>
+          <h1>Data in template </h1>
+        </ng-template>
+        <div #container></div>
       </div>
 
     </form>
   </app-card>
 </div>
-<ng-template [ngIf]='showLinks'>
+<ng-template [ngIf]='additional'>
   <div class='box-90'>
     <app-card>
       <div class='flex-block-buttons'>

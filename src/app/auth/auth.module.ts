@@ -8,6 +8,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoilerplateModule } from '../boilerplate/boilerplate.module';
 import { FirebaseAuthService } from '../service/firebase-auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './auth.reducer';
 
 @NgModule({
   imports: [
@@ -16,7 +19,9 @@ import { FirebaseAuthService } from '../service/firebase-auth.service';
     CommonModule,
     MaterialModule,
     AuthRoutingModule,
-    BoilerplateModule
+    BoilerplateModule,
+    HttpClientModule,
+    StoreModule.forFeature('auth', reducer)
   ],
   declarations: [LoginComponent, RegisterComponent],
   providers: [AuthService, FirebaseAuthService]

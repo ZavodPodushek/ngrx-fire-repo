@@ -9,4 +9,4 @@ const rootRoutes: Routes = [
   imports: [RouterModule.forRoot(rootRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
