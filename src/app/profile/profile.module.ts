@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './profile.reducer';
+import { SharedModule } from '../shared/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     ProfileRoutingModule,
     StoreModule.forFeature('profile', reducer)
   ],

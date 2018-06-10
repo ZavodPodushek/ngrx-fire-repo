@@ -1,0 +1,12 @@
+.wait{
+    width: 100vw;
+    height: 100vh;
+    background-color: brown;
+}
+.spin{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40vh;
+}

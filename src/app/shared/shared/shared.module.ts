@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BoilerplateModule } from '../../boilerplate/boilerplate.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    BoilerplateModule,
   ],
-  declarations: []
+  declarations: [],
+  exports: [
+    HttpClientModule,
+    BoilerplateModule,
+  ]
+
 })
 export class SharedModule { }
