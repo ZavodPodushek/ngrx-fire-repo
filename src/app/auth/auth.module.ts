@@ -10,7 +10,9 @@ import { BoilerplateModule } from '../boilerplate/boilerplate.module';
 import { FirebaseAuthService } from '../service/firebase-auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './auth.reducer';
+import { reducer } from './store/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './store/effects';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { reducer } from './auth.reducer';
     AuthRoutingModule,
     BoilerplateModule,
     HttpClientModule,
-    StoreModule.forFeature('auth', reducer)
+    StoreModule.forFeature('auth', reducer),
+    EffectsModule.forFeature([LoginEffects])
   ],
   declarations: [LoginComponent, RegisterComponent],
   providers: [AuthService, FirebaseAuthService]

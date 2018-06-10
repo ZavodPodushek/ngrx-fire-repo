@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { BoilerplateModule } from './boilerplate/boilerplate.module';
 import { AppRoutingModule } from './app.routing';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,9 @@ import { StoreModule } from '@ngrx/store';
     ProfileModule,
     AuthModule,
     BoilerplateModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
+
   ],
   providers: [],
   bootstrap: [AppComponent]

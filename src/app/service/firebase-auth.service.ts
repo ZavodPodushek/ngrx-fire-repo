@@ -3,6 +3,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { auth, User } from 'firebase/app';
 import { Observable } from 'rxjs';
 
+interface IRegularRegister {
+  email: string; password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +37,7 @@ export class FirebaseAuthService {
       .catch(this.errorHandler);
   }
 
-  public regularRegister(value): Promise<any> {
+  public regularRegister(value: IRegularRegister): Promise<any> {
     const { email, password } = value;
     return this._fireAuth.auth
       .createUserWithEmailAndPassword(email, password)
