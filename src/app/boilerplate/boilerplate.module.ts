@@ -1,12 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { DevPageComponent } from './dev-page/dev-page.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
-  declarations: [CardComponent],
-  exports: [CardComponent]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule
+  ],
+  declarations: [
+    CardComponent,
+    DevPageComponent],
+  exports: [
+    CardComponent,
+    DevPageComponent,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule
+  ]
 })
-export class BoilerplateModule {}
+export class BoilerplateModule { }
