@@ -20,5 +20,6 @@ export class HomeComponent extends FirebaseModelBase implements OnInit {
   }
   ngOnInit() {
   }
+  addUser() { }
 
 }
