@@ -11,7 +11,7 @@ import { FirebaseAuthService } from '../../service/firebase-auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { map, startWith } from 'rxjs/operators';
-import { ACTION } from '../auth.reducer';
+import * as formAction from '../store/actions';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +39,6 @@ export class LoginComponent extends FormBuilderBase implements OnInit {
     console.log(this);
   }
   public async login() {
-    this._store.dispatch({ type: ACTION.LOGIN });
+    this._store.dispatch(new formAction.LoginAction(this.form.value));
   }
 }
