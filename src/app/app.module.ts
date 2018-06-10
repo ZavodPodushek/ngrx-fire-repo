@@ -4,7 +4,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
+import { config } from '../environments/firebase.config';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileModule } from './profile/profile.module';
@@ -18,7 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
   declarations: [AppComponent],
   imports: [
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'BERLOGA'),
+    AngularFireModule.initializeApp(config.firebase, 'BERLOGA'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserModule,
@@ -28,7 +28,6 @@ import { EffectsModule } from '@ngrx/effects';
     BoilerplateModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([])
-
   ],
   providers: [],
   bootstrap: [AppComponent]
