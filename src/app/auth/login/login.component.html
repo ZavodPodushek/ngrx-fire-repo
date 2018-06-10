@@ -2,7 +2,7 @@
   <app-card [title]='title' [subtitle]='subtitle'>
     <form [formGroup]='form' (ngSubmit)="login()" class='form'>
       <div class='inner-form'>
-        <h3>Is Auth ? {{isAuth$ | async}}</h3>
+        <h3>Auth ? {{isAuth$ | async}}</h3>
         <div [style]='store$ | async' hidden='true'></div>
         <mat-form-field class="full-width">
           <input matInput type="text" matInput formControlName='email' placeholder="Your email">
@@ -21,13 +21,15 @@
             </span>
           </div>
         </ng-template>
-        <ng-template #tmp>
-          <h1>Data in template </h1>
-        </ng-template>
-        <div #container></div>
       </div>
-
     </form>
+    <div class='flex-card-footer'>
+      <a mat-button routerLink='/register' color='primary'>
+        <mat-icon>arrow_right_alt</mat-icon>
+        Register
+      </a>
+    </div>
+
   </app-card>
 </div>
 <ng-template [ngIf]='additional'>
@@ -35,7 +37,7 @@
     <app-card>
       <div class='flex-block-buttons'>
         <!-- TODO: 
-          Create verify buttons -->
+          Create and verify buttons -->
 
 
         <button mat-raised-button (click)='googleRegister()'>

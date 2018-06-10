@@ -9,14 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
-import { BoilerplateModule } from './boilerplate/boilerplate.module';
 import { AppRoutingModule } from './app.routing';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { SharedModule } from './shared/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    SharedModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config.firebase, 'BERLOGA'),
     AngularFirestoreModule,
@@ -25,7 +26,6 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserAnimationsModule,
     ProfileModule,
     AuthModule,
-    BoilerplateModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([])
   ],
